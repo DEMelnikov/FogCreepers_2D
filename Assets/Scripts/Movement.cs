@@ -9,6 +9,8 @@ public class Movement : MonoBehaviour
     private bool _isSelected = false;
     private BoxCollider2D boxCollider;
 
+    public bool IsSelected => _isSelected;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +34,7 @@ public class Movement : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
+
 
     private void OnMouseDown()
     {
