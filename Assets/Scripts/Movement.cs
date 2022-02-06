@@ -18,12 +18,6 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetMouseButtonDown(0) )
-        //{
-
-        //   // _isSelected = false;
-        //    //gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        //}
 
         if (_targetPosition != transform.position)
         {
@@ -34,12 +28,14 @@ public class Movement : MonoBehaviour
         {
             _targetPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             _targetPosition.z = transform.position.z;
+            _isSelected = false;
+            gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
 
     private void OnMouseDown()
     {
         _isSelected = true;
-       // gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+        gameObject.GetComponent<SpriteRenderer>().color = Color.green;
     }
 }
