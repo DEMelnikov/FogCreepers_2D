@@ -22,9 +22,8 @@ public class Movement : MonoBehaviour
     {
 
         if (_targetPosition != transform.position)
-        {
             transform.position = Vector3.MoveTowards(transform.position, _targetPosition, speed * Time.deltaTime);
-        }
+
 
         if (Input.GetMouseButtonUp(0) && _isSelected)
         {
@@ -35,7 +34,6 @@ public class Movement : MonoBehaviour
             RotateHero(_targetPosition);
         }
     }
-
 
     private void OnMouseDown()
     {
