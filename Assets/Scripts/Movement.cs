@@ -7,17 +7,17 @@ public class Movement : MonoBehaviour
     public float speed = 2f;
     private Vector3 _targetPosition;
     private bool _isSelected = false;
-    private BoxCollider2D boxCollider;
+    //private BoxCollider2D boxCollider;
 
     public bool IsSelected => _isSelected;
 
     // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         _targetPosition = transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -32,6 +32,7 @@ public class Movement : MonoBehaviour
             _targetPosition.z = transform.position.z;
             _isSelected = false;
             gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            RotateHero(_targetPosition);
         }
     }
 
@@ -40,5 +41,17 @@ public class Movement : MonoBehaviour
     {
         _isSelected = true;
         gameObject.GetComponent<SpriteRenderer>().color = Color.green;
+    }
+
+    private void RotateHero (Vector3 targetPosition)
+    {
+        if (targetPosition.x < transform.position.x)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
     }
 }
